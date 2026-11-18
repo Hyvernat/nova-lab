@@ -5,8 +5,8 @@
 # 1) Le tableau des machines : nom => paramètres
 NODES = {
   "ctrl"    => { ip: "192.168.56.10", cpus: 1, memory: 1024, script: "provision-ctrl.sh" },
-  "preprod" => { ip: "192.168.56.21", cpus: 2, memory: 3072, script: "provision-node.sh" },
-  "prod"    => { ip: "192.168.56.22", cpus: 2, memory: 2048, script: "provision-node.sh" },
+  "preprod" => { ip: "192.168.56.21", cpus: 4, memory: 3072, script: "provision-node.sh" },
+  "prod"    => { ip: "192.168.56.22", cpus: 4, memory: 2048, script: "provision-node.sh" },
 }
 
 Vagrant.configure("2") do |config|
