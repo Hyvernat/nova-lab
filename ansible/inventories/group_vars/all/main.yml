@@ -1,3 +1,6 @@
 ---
 nova_app_name: nova-hello
 nova_namespace: nova
+nova_app_version: "1.0.0"
+nova_image_repository: nginxinc/nginx-unprivileged
+nova_image_tag: "1.27-alpine"     # jamais "latest" (le schéma Helm le refuse)
