@@ -21,6 +21,22 @@
   tags: [ssh]
 
 # ---------- Noyau (PSSI-02) ----------
+# Apport (rapports de plantage Ubuntu) repasse fs.suid_dumpable à 2 au démarrage,
+# après le chargement des sysctl : il faut le désactiver pour que le durcissement survive au reboot.
+- name: Noyau | désactiver Apport dans sa configuration
+  ansible.builtin.lineinfile:
+    path: /etc/default/apport
+    regexp: '^enabled='
+    line: 'enabled=0'
+  tags: [sysctl]
+
+- name: Noyau | arrêter Apport et le retirer du démarrage
+  ansible.builtin.service:
+    name: apport
+    state: stopped
+    enabled: false
+  tags: [sysctl]
+
 - name: Noyau | paramètres sysctl durcis
   ansible.posix.sysctl:
     name: "{{ item.key }}"
@@ -85,8 +101,7 @@
     state: absent
   tags: [packages]
 
-
-  # ---------- Pare-feu (PSSI-05) ----------
+# ---------- Pare-feu (PSSI-05) ----------
 - name: Pare-feu | autoriser les flux légitimes AVANT l'activation
   community.general.ufw:
     rule: allow
