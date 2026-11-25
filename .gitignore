@@ -4,3 +4,4 @@ ansible/.vault_pass_*
 *.retry
 *.log
 .ansible/
+.secrets/

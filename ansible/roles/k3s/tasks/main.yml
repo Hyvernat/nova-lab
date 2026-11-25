@@ -9,7 +9,7 @@
     set -o pipefail
     curl -sfL https://get.k3s.io | \
       INSTALL_K3S_CHANNEL={{ k3s_channel }} \
-      sh -s - server \
+      sh -s - server --disable metrics-server \
       --node-ip {{ ansible_host }} \
       --tls-san {{ ansible_host }} \
       --write-kubeconfig-mode 0600

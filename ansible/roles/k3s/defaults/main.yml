@@ -1,2 +1,2 @@
 ---
-k3s_channel: v1.31 #canal de version k3s(mineure Kubernetes)
+k3s_channel: v1.31 # canal de version k3s(mineure Kubernetes)
