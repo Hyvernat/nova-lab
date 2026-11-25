@@ -6,3 +6,4 @@ nova_greeting: "Hello NOVA — Production"
 nova_network_policy: true
 nova_api_token: "{{ vault_nova_api_token }}"
 common_banner_text: "PRODUCTION : toute intervention est tracée et soumise à validation."
+access_users: [bob]
