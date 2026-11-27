@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # 2) Réglages communes aux 3 machines
   config.vm.box = "bento/ubuntu-22.04"      # image de départ : Ubuntu 22.04
   config.vm.box_check_update = false    
-    config.vm.boot_timeout = 600  # 10 min max pour démarrer (labo lent)   # pas de vérification réseau à chaque démarrage
+    config.vm.boot_timeout = 900  # 10 min max pour démarrer (labo lent)   # pas de vérification réseau à chaque démarrage
   config.vm.synced_folder ".", "/vagrant"   # ton dossier nov-lab est visible dans les VM sous /vagrant
 
   # 3) La boucle : une VM créée pour chaque ligne du tableau

@@ -8,9 +8,9 @@ SHELL := /bin/bash
 
 ANSIBLE_DIR := /vagrant/ansible
 SECRETS_DIR := /vagrant/.secrets
-PLAYBOOK    := cd $(ANSIBLE_DIR) && ansible-playbook
+PLAYBOOK    := cd $(ANSIBLE_DIR) && ansible-playbook $(LIMIT)
 
-all: deps lint keys cluster harden deploy audit
+all: deps keys lint cluster harden deploy audit
 
 # Collections Ansible
 deps:
